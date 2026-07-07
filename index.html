@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio — Diseño de PCB & Hardware</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mask:#0B3D2E;
+    --mask-deep:#062821;
+    --copper:#C6803F;
+    --copper-bright:#E3A868;
+    --silk:#EFEAE0;
+    --silk-dim:#B9C4BC;
+    --amber:#E8A33D;
+    --line: rgba(198,128,63,0.35);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--mask-deep);
+    color:var(--silk);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity:0.15;
+    pointer-events:none;
+    z-index:0;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:var(--copper-bright); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  section{position:relative; z-index:1; max-width:920px; margin:0 auto; padding:80px 24px;}
+  .refdes{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--copper);
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:10px;
+  }
+  .refdes::before{content:"// ";}
+
+  /* HERO */
+  .hero{
+    min-height:92vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    max-width:960px;
+    padding:24px;
+  }
+  .hero-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--copper-bright);
+    letter-spacing:0.15em;
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .hero-eyebrow .dot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--amber);
+    box-shadow:0 0 12px var(--amber);
+    animation:pulse 2s infinite ease-in-out;
+  }
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.3;}}
+  h1{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:clamp(2.2rem, 6vw, 4.2rem);
+    font-weight:700;
+    line-height:1.05;
+    color:var(--silk);
+    letter-spacing:-0.02em;
+  }
+  h1 span{color:var(--copper-bright);}
+  .hero-sub{
+    margin-top:24px;
+    font-size:1.15rem;
+    max-width:620px;
+    color:var(--silk-dim);
+  }
+  .trace{
+    display:flex; align-items:center; gap:0;
+    margin:36px 0;
+  }
+  .trace .pad{width:10px; height:10px; border-radius:50%; background:var(--copper-bright); box-shadow:0 0 8px var(--copper-bright);}
+  .trace .wire{flex:1; height:2px; background:linear-gradient(90deg, var(--copper-bright), var(--copper) 40%, transparent);}
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap; margin-top:8px;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    padding:12px 22px;
+    border:1px solid var(--copper);
+    color:var(--silk);
+    border-radius:2px;
+    transition:all .2s ease;
+  }
+  .btn:hover{background:var(--copper); color:var(--mask-deep); text-decoration:none;}
+  .btn.primary{background:var(--copper-bright); color:var(--mask-deep); border-color:var(--copper-bright);}
+  .btn.primary:hover{background:var(--amber); border-color:var(--amber);}
+
+  /* SECTION HEADERS */
+  .sec-head{display:flex; align-items:baseline; gap:16px; margin-bottom:40px;}
+  .sec-num{font-family:'IBM Plex Mono', monospace; color:var(--copper); font-size:1rem;}
+  h2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.8rem;
+    color:var(--silk);
+    letter-spacing:-0.01em;
+  }
+  .sec-rule{flex:1; height:1px; background:var(--line);}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns: 1.3fr 1fr; gap:48px;}
+  @media(max-width:700px){.about-grid{grid-template-columns:1fr;}}
+  .skills-list{list-style:none;}
+  .skills-list li{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.9rem;
+    padding:10px 0;
+    border-bottom:1px dashed var(--line);
+    display:flex; justify-content:space-between;
+    color:var(--silk-dim);
+  }
+  .skills-list li span:last-child{color:var(--copper-bright);}
+
+  /* PROJECT CARDS */
+  .project{
+    border:1px solid var(--line);
+    border-radius:4px;
+    margin-bottom:32px;
+    overflow:hidden;
+    background:linear-gradient(180deg, rgba(198,128,63,0.04), transparent);
+  }
+  .project-head{
+    padding:28px 28px 0 28px;
+  }
+  .project-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.4rem;
+    color:var(--silk);
+    margin-bottom:6px;
+  }
+  .status-tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:20px;
+    border:1px solid var(--amber);
+    color:var(--amber);
+    margin-bottom:14px;
+  }
+  .project-body{padding:0 28px 28px 28px;}
+  .project-desc{color:var(--silk-dim); margin-bottom:20px; max-width:680px;}
+  .spec-table{width:100%; border-collapse:collapse; margin-bottom:20px;}
+  .spec-table tr{border-bottom:1px solid var(--line);}
+  .spec-table td{padding:10px 0; font-size:0.9rem;}
+  .spec-table td:first-child{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--copper-bright);
+    width:180px;
+    vertical-align:top;
+  }
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    padding:5px 10px;
+    background:rgba(198,128,63,0.12);
+    border:1px solid var(--line);
+    border-radius:2px;
+    color:var(--silk-dim);
+  }
+
+  /* EXPERIENCE */
+  .exp-item{
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns: 140px 1fr;
+    gap:20px;
+  }
+  @media(max-width:600px){.exp-item{grid-template-columns:1fr; gap:6px;}}
+  .exp-date{font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--copper);}
+  .exp-role{font-weight:600; margin-bottom:4px;}
+  .exp-desc{color:var(--silk-dim); font-size:0.95rem;}
+
+  /* CONTACT */
+  .contact-box{
+    text-align:center;
+    padding:60px 24px;
+  }
+  .contact-links{
+    display:flex; justify-content:center; gap:24px; flex-wrap:wrap;
+    margin-top:28px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  footer{
+    text-align:center;
+    padding:32px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--silk-dim);
+    opacity:0.6;
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-eyebrow"><span class="dot"></span> DISPONIBLE PARA NUEVOS PROYECTOS</div>
+  <h1>[Tu Nombre]<br><span>Diseño de PCB & Hardware Embebido</span></h1>
+  <p class="hero-sub">Diseño placas de circuito impreso, desde el esquemático hasta el archivo Gerber listo para fabricación. 1.5 años de experiencia en proyectos reales, especializado en sistemas embebidos de alto rendimiento y adquisición de datos ambientales.</p>
+  <div class="trace"><div class="pad"></div><div class="wire"></div><div class="pad"></div></div>
+  <div class="cta-row">
+    <a href="#proyectos" class="btn primary">Ver proyectos</a>
+    <a href="#contacto" class="btn">Contacto</a>
+    <a href="TU_CV.pdf" class="btn">Descargar CV</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Sobre mí</h2><div class="sec-rule"></div></div>
+  <div class="about-grid">
+    <div>
+      <p style="color:var(--silk-dim); margin-bottom:16px;">Soy diseñador de PCB y hardware autodidacta, formado en la práctica: layout de placas multicapa, selección de componentes, integridad de señal a nivel básico, y prototipado hasta producción en pequeña escala. Vengo del rubro de instrumentación para proyectos de monitoreo climático, donde diseñé electrónica que debía sobrevivir a condiciones exteriores reales.</p>
+      <p style="color:var(--silk-dim);">Actualmente busco nuevos desafíos en diseño de hardware embebido, sistemas de vuelo/aviónica, o instrumentación ambiental — en Chile o remoto para el extranjero.</p>
+    </div>
+    <ul class="skills-list">
+      <li><span>Herramientas EDA</span><span>KiCad, Altium</span></li>
+      <li><span>Simulación</span><span>LTspice</span></li>
+      <li><span>Capas</span><span>2–6 capas</span></li>
+      <li><span>Ensamblaje</span><span>THT / SMD, rework</span></li>
+      <li><span>Firmware base</span><span>STM32 / C</span></li>
+      <li><span>Protocolos</span><span>I2C, SPI, UART, CAN</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Proyectos</h2><div class="sec-rule"></div></div>
+
+  <div class="project">
+    <div class="project-head">
+      <span class="refdes">U1 · Flight Computer</span>
+      <div class="project-title">Computadora de Vuelo — STM32N6</div>
+      <div class="status-tag">En diseño</div>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">Placa controladora de vuelo para dron / cohete experimental, construida sobre el STM32N6, aprovechando su NPU integrada para procesamiento de visión o estimación de actitud asistida por IA a bordo. Diseño enfocado en fusión de sensores de alta tasa de muestreo y robustez ante vibración.</p>
+      <table class="spec-table">
+        <tr><td>MCU</td><td>STM32N6 (Cortex-M55 + NPU Neural-ART) — evaluar uso de la NPU para detección de horizonte / obstáculos en tiempo real.</td></tr>
+        <tr><td>Sensores</td><td>IMU de 6/9 ejes (SPI, alta tasa), barómetro para altitud, GPS opcional vía UART.</td></tr>
+        <tr><td>Alimentación</td><td>Regulación de buck de alta eficiencia + LDO para dominio analógico limpio, protección de polaridad inversa.</td></tr>
+        <tr><td>Layout</td><td>4 capas: señal, GND continuo, potencia, señal. Separación de plano analógico/digital, guard traces en líneas SPI de IMU.</td></tr>
+        <tr><td>Retos de diseño</td><td>Integridad de señal en buses de alta velocidad del N6, gestión térmica de la NPU bajo carga sostenida, aislamiento de ruido de motores/ESC.</td></tr>
+      </table>
+      <div class="tag-row">
+        <span class="tag">KiCad</span><span class="tag">STM32N6</span><span class="tag">Sensor Fusion</span><span class="tag">4-layer</span><span class="tag">Aviónica</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-head">
+      <span class="refdes">U2 · Environmental Node</span>
+      <div class="project-title">Estación de Sensores Climáticos de Exterior</div>
+      <div class="status-tag">En diseño</div>
+    </div>
+    <div class="project-body">
+      <p class="project-desc">Nodo de sensado ambiental de bajo consumo pensado para instalación remota a la intemperie: mide temperatura, humedad, presión, y opcionalmente viento y lluvia, transmitiendo datos vía LoRa o Wi-Fi con alimentación solar autónoma.</p>
+      <table class="spec-table">
+        <tr><td>MCU</td><td>Microcontrolador de bajo consumo (ej. STM32L o ESP32) con modos sleep agresivos.</td></tr>
+        <tr><td>Sensores</td><td>Temp/humedad (I2C), presión barométrica, anemómetro/pluviómetro por interrupción (opcional).</td></tr>
+        <tr><td>Comunicación</td><td>LoRa (largo alcance, bajo consumo) o Wi-Fi según caso de uso.</td></tr>
+        <tr><td>Energía</td><td>Panel solar + carga de batería LiFePO4, circuito de gestión de energía (MPPT simple), protección de sobrecarga.</td></tr>
+        <tr><td>Mecánico</td><td>Diseño de placa compatible con carcasa IP65, conectores estancos, protección contra transitorios (rayos, ESD).</td></tr>
+        <tr><td>Retos de diseño</td><td>Consumo en reposo &lt;10 µA, protección ambiental real (humedad, corrosión, ciclos térmicos), calibración de sensores expuestos.</td></tr>
+      </table>
+      <div class="tag-row">
+        <span class="tag">Low Power</span><span class="tag">LoRa</span><span class="tag">Solar</span><span class="tag">IP65</span><span class="tag">Instrumentación</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Experiencia</h2><div class="sec-rule"></div></div>
+  <div class="exp-item">
+    <div class="exp-date mono">2024 — 2026</div>
+    <div>
+      <div class="exp-role">Diseñador de PCB & Hardware — Proyecto de instrumentación climática</div>
+      <div class="exp-desc">Diseño de placas para sensores de monitoreo ambiental exterior: esquemáticos, layout, selección de componentes y validación de prototipos. Trabajo directo con requisitos de resistencia ambiental y bajo consumo.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact-box">
+  <div class="sec-head" style="justify-content:center;"><span class="sec-num">04</span><h2>Contacto</h2></div>
+  <p style="color:var(--silk-dim); max-width:480px; margin:0 auto;">Abierto a roles de diseño de hardware/PCB, freelance o full-time, en Chile o remoto.</p>
+  <div class="contact-links">
+    <a href="mailto:tu-correo@ejemplo.com">tu-correo@ejemplo.com</a>
+    <a href="https://linkedin.com/in/tu-usuario" target="_blank">LinkedIn</a>
+    <a href="https://github.com/tu-usuario" target="_blank">GitHub</a>
+  </div>
+</section>
+
+<footer>PCB &amp; HARDWARE PORTFOLIO — REV A</footer>
+
+</body>
+</html>
