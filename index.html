@@ -189,6 +189,50 @@
     color:var(--silk-dim);
   }
 
+  /* ITERATIONS / PROTOTYPES */
+  .iter-intro{color:var(--silk-dim); max-width:680px; margin-bottom:36px;}
+  .iter-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+    gap:24px;
+  }
+  .iter-card{
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    background:linear-gradient(180deg, rgba(198,128,63,0.04), transparent);
+    display:flex;
+    flex-direction:column;
+  }
+  .iter-photo{
+    aspect-ratio:4/3;
+    background:var(--mask);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .iter-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .iter-photo.empty{
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--copper);
+    text-align:center;
+    padding:12px;
+  }
+  .iter-body{padding:16px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .iter-name{font-family:'IBM Plex Mono', monospace; font-size:0.98rem; color:var(--silk);}
+  .iter-meta{
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+  }
+  .iter-rev{color:var(--copper-bright);}
+  .iter-status{color:var(--amber); text-transform:uppercase; letter-spacing:0.06em; font-size:0.7rem;}
+  .iter-desc{font-size:0.85rem; color:var(--silk-dim); flex:1;}
+  .placeholder{color:var(--silk-dim); opacity:0.7; font-style:italic; border-bottom:1px dashed var(--line);}
+
   /* EXPERIENCE */
   .exp-item{
     padding:20px 0;
@@ -227,12 +271,12 @@
 <section class="hero">
   <div class="hero-eyebrow"><span class="dot"></span> DISPONIBLE PARA NUEVOS PROYECTOS</div>
   <h1>Ian Firmani<br><span>Diseño de sistemas, PCB &amp; Hardware Embebido</span></h1>
-  <p class="hero-sub">Diseño de proyectos de sensado IoT y plataformas integradas; he definido requisitos y la arquitectura de hardware. Especializado en el diseño de PCB de adquisición de datos ambientales con 2 años de experiencia.</p>
+  <p class="hero-sub">Diseño de proyectos de sensado IoT y plataformas integradas; he definido requisitos y la arquitectura de hardware. Especializado en el diseño de PCB de adquisición de datos ambientales con ~1.5 años de experiencia.</p>
   <div class="trace"><div class="pad"></div><div class="wire"></div><div class="pad"></div></div>
   <div class="cta-row">
-    <a href="file:///home/ianf/Documentos/Portafolio/IFirmani.github.io/index.html#proyectos" class="btn primary">Ver proyectos</a>
-    <a href="file:///home/ianf/Documentos/Portafolio/IFirmani.github.io/index.html#contacto" class="btn">Contacto</a>
-    <a href="file:///home/ianf/Documentos/Portafolio/IFirmani.github.io/TU_CV.pdf" class="btn">Descargar CV</a>
+    <a href="#proyectos" class="btn primary">Ver proyectos</a>
+    <a href="#contacto" class="btn">Contacto</a>
+    <a href="./CV/CV_Ian.pdf" class="btn" download>Descargar CV</a>
   </div>
 </section>
 
@@ -240,16 +284,18 @@
   <div class="sec-head"><span class="sec-num">01</span><h2>Sobre mí</h2><div class="sec-rule"></div></div>
   <div class="about-grid">
     <div>
-      <p style="color:var(--silk-dim); margin-bottom:16px;">Soy diseñador de PCB y hardware de oficio: layout de placas multicapa, selección de componentes, integridad de señal a nivel básico, y prototipado hasta pre-producción en pequeña escala. Vengo del rubro del mantenimiento para proyectos de monitoreo climático, donde diseñé sensores que debían sobrevivir a condiciones desafiantes.</p>
-      <p style="color:var(--silk-dim);">Actualmente busco nuevos desafíos en diseño de hardware embebido, sistemas de vuelo/aviónica, o instrumentación ambiental, en chile o en el extranjero.</p>
+      <p style="color:var(--silk-dim); margin-bottom:16px;">Soy diseñador de hardware y PCB, autodidacta y en reconversión profesional hacia el área técnica electrónica (~1.5 años de experiencia práctica, sin título de ingeniería). Desde febrero de 2025 desarrollo SAE, un sistema IoT de monitoreo ambiental y de cadena de frío para Ematel, construido desde cero sin área técnica previa en la empresa: definí la arquitectura del sistema, diseñé las placas en KiCad (ESP32 y STM32), gestioné la fabricación de cada iteración de prototipo con JLCPCB y PCBWay, y realicé soldadura SMD manual hasta componentes 0402.</p>
+      <p style="color:var(--silk-dim); margin-bottom:16px;">Vengo de un rubro completamente distinto — titulado en cine (Universidad del Desarrollo) y operador de cámara aérea en misiones de combate de incendios forestales — y migré hacia electrónica por interés propio, con formación autodidacta impulsada por las necesidades del proyecto.</p>
+      <p style="color:var(--silk-dim);">Busco nuevos desafíos en diseño de hardware embebido, instrumentación ambiental o sistemas de vuelo/aviónica, en Chile o el extranjero.</p>
     </div>
     <ul class="skills-list">
       <li><span>Herramienta EDA</span><span>KiCad</span></li>
-      
-      <li><span>Capas</span><span>2–6 capas</span></li>
-      <li><span>Ensamblaje</span><span>THT / SMD, rework</span></li>
-      <li><span>Frameworks</span><span>ST Cube MX / ESP-IDF</span></li>
-      <li><span>Herramientas</span><span>Claude code, Python, C/C++</span></li>
+      <li><span>Soldadura</span><span>SMD hasta 0402, THT, rework</span></li>
+      <li><span>Fabricación</span><span>JLCPCB, PCBWay — gestión de BOM</span></li>
+      <li><span>Microcontroladores</span><span>ESP32 (C3/C6/S3), STM32</span></li>
+      <li><span>Firmware</span><span>C — ESP-IDF / STM32CubeIDE</span></li>
+      <li><span>Comunicación</span><span>I2C, SPI, UART, 1-Wire, WiFi, LoRaWAN</span></li>
+      <li><span>Formación</span><span>Autodidacta, sin título de ingeniería</span></li>
     </ul>
   </div>
 </section>
@@ -302,19 +348,141 @@
   </div>
 </section>
 
+<section id="iteraciones">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Iteraciones de proyectos</h2><div class="sec-rule"></div></div>
+  <p class="iter-intro">Registro de prototipos y revisiones de placa a lo largo del desarrollo de SAE y otros proyectos personales. Tarjetas en construcción — completar con foto, nombre, versión, descripción y fecha/estado de cada iteración.</p>
+  <div class="iter-grid">
+
+    <div class="iter-card">
+      <div class="iter-photo empty">[Agregar foto]</div>
+      <div class="iter-body">
+        <span class="refdes">P01</span>
+        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
+        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
+        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+      </div>
+    </div>
+
+    <div class="iter-card">
+      <div class="iter-photo empty">[Agregar foto]</div>
+      <div class="iter-body">
+        <span class="refdes">P02</span>
+        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
+        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
+        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+      </div>
+    </div>
+
+    <div class="iter-card">
+      <div class="iter-photo empty">[Agregar foto]</div>
+      <div class="iter-body">
+        <span class="refdes">P03</span>
+        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
+        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
+        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+      </div>
+    </div>
+
+    <div class="iter-card">
+      <div class="iter-photo empty">[Agregar foto]</div>
+      <div class="iter-body">
+        <span class="refdes">P04</span>
+        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
+        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
+        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+      </div>
+    </div>
+
+    <div class="iter-card">
+      <div class="iter-photo empty">[Agregar foto]</div>
+      <div class="iter-body">
+        <span class="refdes">P05</span>
+        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
+        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
+        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+      </div>
+    </div>
+
+    <div class="iter-card">
+      <div class="iter-photo empty">[Agregar foto]</div>
+      <div class="iter-body">
+        <span class="refdes">P06</span>
+        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
+        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
+        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+      </div>
+    </div>
+
+    <div class="iter-card">
+      <div class="iter-photo empty">[Agregar foto]</div>
+      <div class="iter-body">
+        <span class="refdes">P07</span>
+        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
+        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
+        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+      </div>
+    </div>
+
+    <div class="iter-card">
+      <div class="iter-photo empty">[Agregar foto]</div>
+      <div class="iter-body">
+        <span class="refdes">P08</span>
+        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
+        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
+        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+      </div>
+    </div>
+
+    <div class="iter-card">
+      <div class="iter-photo empty">[Agregar foto]</div>
+      <div class="iter-body">
+        <span class="refdes">P09</span>
+        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
+        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
+        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+      </div>
+    </div>
+
+    <div class="iter-card">
+      <div class="iter-photo empty">[Agregar foto]</div>
+      <div class="iter-body">
+        <span class="refdes">P10</span>
+        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
+        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
+        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section id="experiencia">
-  <div class="sec-head"><span class="sec-num">03</span><h2>Experiencia</h2><div class="sec-rule"></div></div>
+  <div class="sec-head"><span class="sec-num">04</span><h2>Experiencia</h2><div class="sec-rule"></div></div>
   <div class="exp-item">
-    <div class="exp-date mono">2024 — 2026</div>
+    <div class="exp-date mono">Feb 2025 — Actualidad</div>
     <div>
-      <div class="exp-role">Diseñador de PCB &amp; Hardware — Proyecto de instrumentación climática</div>
-      <div class="exp-desc">Diseño de placas para sensores de monitoreo ambiental exterior: esquemáticos, layout, selección de componentes y validación de prototipos. Trabajo directo con requisitos de resistencia ambiental y bajo consumo.</div>
+      <div class="exp-role">Desarrollador IoT, Proyecto SAE — Ematel</div>
+      <div class="exp-desc">Diseño y desarrollo desde cero de SAE, sistema IoT de monitoreo ambiental y de cadena de frío, sin área técnica previa en la empresa: definición de arquitectura, diseño de placas en KiCad (ESP32 y STM32), gestión de fabricación de prototipos con JLCPCB y PCBWay, soldadura SMD manual hasta 0402, y programación de firmware embebido en C (ESP-IDF / STM32CubeIDE) con integración de sensores vía I2C, SPI y 1-Wire. Despliegue de la plataforma IoT ThingsBoard sobre servidor Linux e integración de sensores LoRaWAN mediante ChirpStack. Gestión de cotizaciones, compras y BOM con proveedores nacionales e internacionales.</div>
+    </div>
+  </div>
+  <div class="exp-item">
+    <div class="exp-date mono">May 2024 — Feb 2025</div>
+    <div>
+      <div class="exp-role">Jefe de Cuentas — Ematel</div>
+      <div class="exp-desc">Gestión de cartera de clientes y procesos comerciales, con comunicación técnica directa con clientes y proveedores. Seleccionado internamente para liderar el desarrollo del proyecto SAE, dando origen al área técnica de la empresa.</div>
+    </div>
+  </div>
+  <div class="exp-item">
+    <div class="exp-date mono">2022 — 2024</div>
+    <div>
+      <div class="exp-role">Camarógrafo Aéreo — Explorair / Aerotec</div>
+      <div class="exp-desc">Operación de cámara aérea WesCam MX10 durante dos temporadas de incendios forestales, en un entorno técnico de alta exigencia y precisión operativa.</div>
     </div>
   </div>
 </section>
 
 <section id="contacto" class="contact-box">
-  <div class="sec-head" style="justify-content:center;"><span class="sec-num">04</span><h2>Contacto</h2></div>
+  <div class="sec-head" style="justify-content:center;"><span class="sec-num">05</span><h2>Contacto</h2></div>
   <p style="color:var(--silk-dim); max-width:480px; margin:0 auto;">Abierto a roles de diseño de hardware/PCB, freelance o full-time, en Chile o remoto.</p>
   <div class="contact-links">
     <a href="mailto:tu-correo@ejemplo.com">tu-correo@ejemplo.com</a>
