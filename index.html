@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0079)file:///home/ianf/Documentos/Portafolio/IFirmani.github.io/index.html#proyectos -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portafolio — Diseño de PCB & Hardware</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Portafolio — Diseño de PCB &amp; Hardware</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./index_files/css2" rel="stylesheet">
 <style>
   :root{
     --mask:#0B3D2E;
@@ -226,13 +226,13 @@
 
 <section class="hero">
   <div class="hero-eyebrow"><span class="dot"></span> DISPONIBLE PARA NUEVOS PROYECTOS</div>
-  <h1>[Tu Nombre]<br><span>Diseño de PCB & Hardware Embebido</span></h1>
-  <p class="hero-sub">Diseño placas de circuito impreso, desde el esquemático hasta el archivo Gerber listo para fabricación. 1.5 años de experiencia en proyectos reales, especializado en sistemas embebidos de alto rendimiento y adquisición de datos ambientales.</p>
+  <h1>Ian Firmani<br><span>Diseño de sistemas, PCB &amp; Hardware Embebido</span></h1>
+  <p class="hero-sub">Diseño de proyectos de sensado IoT y plataformas integradas; he definido requisitos y la arquitectura de hardware. Especializado en el diseño de PCB de adquisición de datos ambientales con 2 años de experiencia.</p>
   <div class="trace"><div class="pad"></div><div class="wire"></div><div class="pad"></div></div>
   <div class="cta-row">
-    <a href="#proyectos" class="btn primary">Ver proyectos</a>
-    <a href="#contacto" class="btn">Contacto</a>
-    <a href="TU_CV.pdf" class="btn">Descargar CV</a>
+    <a href="file:///home/ianf/Documentos/Portafolio/IFirmani.github.io/index.html#proyectos" class="btn primary">Ver proyectos</a>
+    <a href="file:///home/ianf/Documentos/Portafolio/IFirmani.github.io/index.html#contacto" class="btn">Contacto</a>
+    <a href="file:///home/ianf/Documentos/Portafolio/IFirmani.github.io/TU_CV.pdf" class="btn">Descargar CV</a>
   </div>
 </section>
 
@@ -240,16 +240,16 @@
   <div class="sec-head"><span class="sec-num">01</span><h2>Sobre mí</h2><div class="sec-rule"></div></div>
   <div class="about-grid">
     <div>
-      <p style="color:var(--silk-dim); margin-bottom:16px;">Soy diseñador de PCB y hardware autodidacta, formado en la práctica: layout de placas multicapa, selección de componentes, integridad de señal a nivel básico, y prototipado hasta producción en pequeña escala. Vengo del rubro de instrumentación para proyectos de monitoreo climático, donde diseñé electrónica que debía sobrevivir a condiciones exteriores reales.</p>
-      <p style="color:var(--silk-dim);">Actualmente busco nuevos desafíos en diseño de hardware embebido, sistemas de vuelo/aviónica, o instrumentación ambiental — en Chile o remoto para el extranjero.</p>
+      <p style="color:var(--silk-dim); margin-bottom:16px;">Soy diseñador de PCB y hardware de oficio: layout de placas multicapa, selección de componentes, integridad de señal a nivel básico, y prototipado hasta pre-producción en pequeña escala. Vengo del rubro del mantenimiento para proyectos de monitoreo climático, donde diseñé sensores que debían sobrevivir a condiciones desafiantes.</p>
+      <p style="color:var(--silk-dim);">Actualmente busco nuevos desafíos en diseño de hardware embebido, sistemas de vuelo/aviónica, o instrumentación ambiental, en chile o en el extranjero.</p>
     </div>
     <ul class="skills-list">
-      <li><span>Herramientas EDA</span><span>KiCad, Altium</span></li>
-      <li><span>Simulación</span><span>LTspice</span></li>
+      <li><span>Herramienta EDA</span><span>KiCad</span></li>
+      
       <li><span>Capas</span><span>2–6 capas</span></li>
       <li><span>Ensamblaje</span><span>THT / SMD, rework</span></li>
-      <li><span>Firmware base</span><span>STM32 / C</span></li>
-      <li><span>Protocolos</span><span>I2C, SPI, UART, CAN</span></li>
+      <li><span>Frameworks</span><span>ST Cube MX / ESP-IDF</span></li>
+      <li><span>Herramientas</span><span>Claude code, Python, C/C++</span></li>
     </ul>
   </div>
 </section>
@@ -264,14 +264,15 @@
       <div class="status-tag">En diseño</div>
     </div>
     <div class="project-body">
-      <p class="project-desc">Placa controladora de vuelo para dron / cohete experimental, construida sobre el STM32N6, aprovechando su NPU integrada para procesamiento de visión o estimación de actitud asistida por IA a bordo. Diseño enfocado en fusión de sensores de alta tasa de muestreo y robustez ante vibración.</p>
+      <p class="project-desc">Placa controladora de vuelo para UAV con visión artificial y edge AI, basada en STM32N6. Con la NPU integrada, se pueden procesar datos y tomar decisiones en tiempo real, efectuando correcciones y ajustes independientemente de la conectividad del UAV.
+</p>
       <table class="spec-table">
-        <tr><td>MCU</td><td>STM32N6 (Cortex-M55 + NPU Neural-ART) — evaluar uso de la NPU para detección de horizonte / obstáculos en tiempo real.</td></tr>
-        <tr><td>Sensores</td><td>IMU de 6/9 ejes (SPI, alta tasa), barómetro para altitud, GPS opcional vía UART.</td></tr>
-        <tr><td>Alimentación</td><td>Regulación de buck de alta eficiencia + LDO para dominio analógico limpio, protección de polaridad inversa.</td></tr>
-        <tr><td>Layout</td><td>4 capas: señal, GND continuo, potencia, señal. Separación de plano analógico/digital, guard traces en líneas SPI de IMU.</td></tr>
+        <tbody><tr><td>MCU</td><td>STM32N6 encargado del control de vuelo del dispositivo, permite aumentar el rango de operación del UAV al tomar decisiones in-situ sin que el operador intervenga. Manteniendo rumbo, actitud y objetivo</td></tr>
+        <tr><td>Sensores</td><td>IMU de 9 ejes, barometro, termometro, higrometro y GPS.</td></tr>
+        <tr><td>Alimentación</td><td>Reguladores buck de alta eficiencia, sistema de carga solar para UAV tipo planeador permitiendo misiones de rango extendido</td></tr>
+        <tr><td>Layout</td><td>6 capas</td></tr>
         <tr><td>Retos de diseño</td><td>Integridad de señal en buses de alta velocidad del N6, gestión térmica de la NPU bajo carga sostenida, aislamiento de ruido de motores/ESC.</td></tr>
-      </table>
+      </tbody></table>
       <div class="tag-row">
         <span class="tag">KiCad</span><span class="tag">STM32N6</span><span class="tag">Sensor Fusion</span><span class="tag">4-layer</span><span class="tag">Aviónica</span>
       </div>
@@ -287,13 +288,13 @@
     <div class="project-body">
       <p class="project-desc">Nodo de sensado ambiental de bajo consumo pensado para instalación remota a la intemperie: mide temperatura, humedad, presión, y opcionalmente viento y lluvia, transmitiendo datos vía LoRa o Wi-Fi con alimentación solar autónoma.</p>
       <table class="spec-table">
-        <tr><td>MCU</td><td>Microcontrolador de bajo consumo (ej. STM32L o ESP32) con modos sleep agresivos.</td></tr>
+        <tbody><tr><td>MCU</td><td>Microcontrolador de bajo consumo (ej. STM32L o ESP32) con modos sleep agresivos.</td></tr>
         <tr><td>Sensores</td><td>Temp/humedad (I2C), presión barométrica, anemómetro/pluviómetro por interrupción (opcional).</td></tr>
         <tr><td>Comunicación</td><td>LoRa (largo alcance, bajo consumo) o Wi-Fi según caso de uso.</td></tr>
         <tr><td>Energía</td><td>Panel solar + carga de batería LiFePO4, circuito de gestión de energía (MPPT simple), protección de sobrecarga.</td></tr>
         <tr><td>Mecánico</td><td>Diseño de placa compatible con carcasa IP65, conectores estancos, protección contra transitorios (rayos, ESD).</td></tr>
         <tr><td>Retos de diseño</td><td>Consumo en reposo &lt;10 µA, protección ambiental real (humedad, corrosión, ciclos térmicos), calibración de sensores expuestos.</td></tr>
-      </table>
+      </tbody></table>
       <div class="tag-row">
         <span class="tag">Low Power</span><span class="tag">LoRa</span><span class="tag">Solar</span><span class="tag">IP65</span><span class="tag">Instrumentación</span>
       </div>
@@ -306,7 +307,7 @@
   <div class="exp-item">
     <div class="exp-date mono">2024 — 2026</div>
     <div>
-      <div class="exp-role">Diseñador de PCB & Hardware — Proyecto de instrumentación climática</div>
+      <div class="exp-role">Diseñador de PCB &amp; Hardware — Proyecto de instrumentación climática</div>
       <div class="exp-desc">Diseño de placas para sensores de monitoreo ambiental exterior: esquemáticos, layout, selección de componentes y validación de prototipos. Trabajo directo con requisitos de resistencia ambiental y bajo consumo.</div>
     </div>
   </div>
@@ -324,5 +325,6 @@
 
 <footer>PCB &amp; HARDWARE PORTFOLIO — REV A</footer>
 
-</body>
-</html>
+
+
+</body></html>
