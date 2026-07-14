@@ -133,10 +133,15 @@
     font-size:0.9rem;
     padding:10px 0;
     border-bottom:1px dashed var(--line);
-    display:flex; justify-content:space-between;
+    display:grid;
+    grid-template-columns: 190px 1fr;
+    gap:12px;
     color:var(--silk-dim);
   }
   .skills-list li span:last-child{color:var(--copper-bright);}
+  @media(max-width:480px){
+    .skills-list li{grid-template-columns:1fr; gap:4px;}
+  }
 
   /* PROJECT CARDS */
   .project{
