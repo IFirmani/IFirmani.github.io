@@ -189,49 +189,29 @@
     color:var(--silk-dim);
   }
 
-  /* ITERATIONS / PROTOTYPES */
-  .iter-intro{color:var(--silk-dim); max-width:680px; margin-bottom:36px;}
-  .iter-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
-    gap:24px;
-  }
-  .iter-card{
-    border:1px solid var(--line);
-    border-radius:4px;
-    overflow:hidden;
-    background:linear-gradient(180deg, rgba(198,128,63,0.04), transparent);
-    display:flex;
-    flex-direction:column;
-  }
-  .iter-photo{
-    aspect-ratio:4/3;
+  /* PROJECT PHOTO STRIPS */
+  .photo-strip{display:flex; gap:10px; flex-wrap:wrap; margin:16px 0;}
+  .photo-strip img{
+    width:120px; height:120px; object-fit:cover;
+    border:1px solid var(--line); border-radius:2px;
     background:var(--mask);
-    border-bottom:1px solid var(--line);
-    overflow:hidden;
+    display:block;
   }
-  .iter-photo img{width:100%; height:100%; object-fit:cover; display:block;}
-  .iter-photo.empty{
+  .photo-strip.compact{margin:10px 0 0;}
+  .photo-strip.compact img{width:84px; height:84px;}
+  .photo-placeholder{
+    width:120px; height:120px;
+    border:1px dashed var(--line); border-radius:2px;
     display:flex; align-items:center; justify-content:center;
     font-family:'IBM Plex Mono', monospace;
-    font-size:0.7rem;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
+    font-size:0.65rem;
     color:var(--copper);
     text-align:center;
-    padding:12px;
+    padding:8px;
   }
-  .iter-body{padding:16px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1;}
-  .iter-name{font-family:'IBM Plex Mono', monospace; font-size:0.98rem; color:var(--silk);}
-  .iter-meta{
-    display:flex; justify-content:space-between; align-items:center;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.75rem;
-  }
-  .iter-rev{color:var(--copper-bright);}
-  .iter-status{color:var(--amber); text-transform:uppercase; letter-spacing:0.06em; font-size:0.7rem;}
-  .iter-desc{font-size:0.85rem; color:var(--silk-dim); flex:1;}
+
   .placeholder{color:var(--silk-dim); opacity:0.7; font-style:italic; border-bottom:1px dashed var(--line);}
+  .tag.placeholder, .status-tag.placeholder{border-style:dashed; border-bottom-width:1px;}
 
   /* EXPERIENCE */
   .exp-item{
@@ -311,6 +291,11 @@
     </div>
     <div class="project-body">
       <p class="project-desc">Primer intento de Ematel de construir un sensor IoT multipropósito basado en ESP32. Precursor directo de SAE: sirvió para aprender qué funciones eran realmente necesarias antes de simplificar el enfoque.</p>
+      <div class="photo-strip">
+        <img src="./Imagenes/SUE2.jpeg" alt="SUE v2 — placa principal ensamblada" loading="lazy">
+        <img src="./Imagenes/sue%202%20pcb%20+%20ensamble.jpeg" alt="SUE v2 — PCB y ensamble en gabinete" loading="lazy">
+        <img src="./Imagenes/sue%202%20pcb%20daugther%20board%20+%20ensamble.jpeg" alt="SUE v2 — daughter board y ensamble" loading="lazy">
+      </div>
       <table class="spec-table">
         <tbody><tr><td>MCU</td><td>ESP32</td></tr>
         <tr><td>Interfaz de usuario</td><td>Pantalla, buzzer y LEDs de estado</td></tr>
@@ -338,6 +323,10 @@
           <div>
             <div class="exp-role">Prueba de concepto</div>
             <div class="exp-desc">Primera versión: priorizar simplicidad, bajo costo y facilidad de implementación por sobre las funciones extra de SUE. Placas ensambladas manualmente.</div>
+            <div class="photo-strip compact">
+              <img src="./Imagenes/sae%20hw%200_1_1.jpeg" alt="SAE v0.1 — placa ensamblada, vista 1" loading="lazy">
+              <img src="./Imagenes/sae%20hw%200_1_2.jpeg" alt="SAE v0.1 — placa ensamblada, vista 2" loading="lazy">
+            </div>
           </div>
         </div>
         <div class="exp-item">
@@ -345,6 +334,12 @@
           <div>
             <div class="exp-role">Rediseño de 4 capas</div>
             <div class="exp-desc">Diseño más limpio en 4 capas. Lleva más de 3 meses en pruebas constantes, funcionando sin fallos. Primera revisión ensamblada directamente por el fabricante en China (las anteriores las ensamblé manualmente).</div>
+            <div class="photo-strip compact">
+              <img src="./Imagenes/sae%20hw%201_1%20render.png" alt="SAE v1.1 — render CAD" loading="lazy">
+              <img src="./Imagenes/sae%20hw%20pcb%20layout.png" alt="SAE v1.1 — layout de PCB en KiCad" loading="lazy">
+              <img src="./Imagenes/sae%20hw%201_1_2.jpeg" alt="SAE v1.1 — placa ensamblada, vista frontal" loading="lazy">
+              <img src="./Imagenes/sae%201_1_1.jpeg" alt="SAE v1.1 — placa ensamblada, vista trasera" loading="lazy">
+            </div>
           </div>
         </div>
         <div class="exp-item" style="border-bottom:none;">
@@ -352,6 +347,11 @@
           <div>
             <div class="exp-role">Transición a stack STM32</div>
             <div class="exp-desc">Diseño transicional: pasa de un único ESP32-C3 a un stack basado en STM32 como MCU principal, dejando el C3 solo como módulo precertificado de comunicaciones. 4 capas, diseñada en torno a una carcasa comercial fabricada en China. Ya fabricada y ensamblada en China, en tránsito hacia Chile.</div>
+            <div class="photo-strip compact">
+              <img src="./Imagenes/sae%202%20hw%20layout.png" alt="SAE v2.0 — layout de PCB en KiCad" loading="lazy">
+              <img src="./Imagenes/sae%202%20hw%20render.png" alt="SAE v2.0 — render CAD" loading="lazy">
+              <img src="./Imagenes/sae%202%20proto.jpeg" alt="SAE v2.0 — prototipo en protoboard (STM32 + ESP32-C3)" loading="lazy">
+            </div>
           </div>
         </div>
       </div>
@@ -362,111 +362,55 @@
   </div>
 </section>
 
-<section id="iteraciones">
-  <div class="sec-head"><span class="sec-num">03</span><h2>Iteraciones de proyectos</h2><div class="sec-rule"></div></div>
-  <p class="iter-intro">Registro de prototipos y revisiones de placa a lo largo del desarrollo de SAE y otros proyectos personales. Tarjetas en construcción — completar con foto, nombre, versión, descripción y fecha/estado de cada iteración.</p>
-  <div class="iter-grid">
+<section id="personales">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Proyectos personales</h2><div class="sec-rule"></div></div>
 
-    <div class="iter-card">
-      <div class="iter-photo empty">[Agregar foto]</div>
-      <div class="iter-body">
-        <span class="refdes">P01</span>
-        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
-        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
-        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+  <div class="project">
+    <div class="project-head">
+      <span class="refdes">U3 · Tube Screamer</span>
+      <div class="project-title placeholder">[Nombre / variante del pedal]</div>
+      <div class="status-tag placeholder">[Estado]</div>
+    </div>
+    <div class="project-body">
+      <p class="project-desc placeholder">[Descripción corta — qué es, por qué lo construiste, qué lo hace distinto del original]</p>
+      <div class="photo-strip">
+        <div class="photo-placeholder">[Agregar foto]</div>
+      </div>
+      <table class="spec-table">
+        <tbody>
+        <tr><td>Circuito</td><td class="placeholder">[Detalles del circuito / mods respecto al original]</td></tr>
+        <tr><td>Gabinete</td><td class="placeholder">[Material, mecanizado, serigrafía]</td></tr>
+        <tr><td>Retos de diseño</td><td class="placeholder">[Ruido, layout analógico, footswitch, etc.]</td></tr>
+        </tbody>
+      </table>
+      <div class="tag-row">
+        <span class="tag placeholder">[tag]</span><span class="tag placeholder">[tag]</span><span class="tag placeholder">[tag]</span>
       </div>
     </div>
+  </div>
 
-    <div class="iter-card">
-      <div class="iter-photo empty">[Agregar foto]</div>
-      <div class="iter-body">
-        <span class="refdes">P02</span>
-        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
-        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
-        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
+  <div class="project">
+    <div class="project-head">
+      <span class="refdes">U4 · Pet Water Sensor</span>
+      <div class="project-title placeholder">[Nombre del proyecto]</div>
+      <div class="status-tag placeholder">[Estado]</div>
+    </div>
+    <div class="project-body">
+      <p class="project-desc placeholder">[Descripción corta — sensor de agua para perros, qué problema resuelve]</p>
+      <div class="photo-strip">
+        <div class="photo-placeholder">[Agregar foto]</div>
+      </div>
+      <table class="spec-table">
+        <tbody>
+        <tr><td>MCU / Sensor</td><td class="placeholder">[Detalle]</td></tr>
+        <tr><td>Alimentación</td><td class="placeholder">[Detalle]</td></tr>
+        <tr><td>Retos de diseño</td><td class="placeholder">[Detalle]</td></tr>
+        </tbody>
+      </table>
+      <div class="tag-row">
+        <span class="tag placeholder">[tag]</span><span class="tag placeholder">[tag]</span><span class="tag placeholder">[tag]</span>
       </div>
     </div>
-
-    <div class="iter-card">
-      <div class="iter-photo empty">[Agregar foto]</div>
-      <div class="iter-body">
-        <span class="refdes">P03</span>
-        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
-        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
-        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
-      </div>
-    </div>
-
-    <div class="iter-card">
-      <div class="iter-photo empty">[Agregar foto]</div>
-      <div class="iter-body">
-        <span class="refdes">P04</span>
-        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
-        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
-        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
-      </div>
-    </div>
-
-    <div class="iter-card">
-      <div class="iter-photo empty">[Agregar foto]</div>
-      <div class="iter-body">
-        <span class="refdes">P05</span>
-        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
-        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
-        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
-      </div>
-    </div>
-
-    <div class="iter-card">
-      <div class="iter-photo empty">[Agregar foto]</div>
-      <div class="iter-body">
-        <span class="refdes">P06</span>
-        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
-        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
-        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
-      </div>
-    </div>
-
-    <div class="iter-card">
-      <div class="iter-photo empty">[Agregar foto]</div>
-      <div class="iter-body">
-        <span class="refdes">P07</span>
-        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
-        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
-        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
-      </div>
-    </div>
-
-    <div class="iter-card">
-      <div class="iter-photo empty">[Agregar foto]</div>
-      <div class="iter-body">
-        <span class="refdes">P08</span>
-        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
-        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
-        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
-      </div>
-    </div>
-
-    <div class="iter-card">
-      <div class="iter-photo empty">[Agregar foto]</div>
-      <div class="iter-body">
-        <span class="refdes">P09</span>
-        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
-        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
-        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
-      </div>
-    </div>
-
-    <div class="iter-card">
-      <div class="iter-photo empty">[Agregar foto]</div>
-      <div class="iter-body">
-        <span class="refdes">P10</span>
-        <div class="iter-name placeholder">[Nombre del proyecto/iteración]</div>
-        <div class="iter-meta"><span class="iter-rev placeholder">[v0.1]</span><span class="iter-status placeholder">[Fecha / estado]</span></div>
-        <p class="iter-desc placeholder">[Descripción corta — qué cambió o se probó en esta iteración]</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
