@@ -281,16 +281,16 @@
 </section>
 
 <section id="proyectos">
-  <div class="sec-head"><span class="sec-num">02</span><h2>Proyectos</h2><div class="sec-rule"></div></div>
+  <div class="sec-head"><span class="sec-num">02</span><h2>Proyectos Profesionales</h2><div class="sec-rule"></div></div>
 
   <div class="project">
     <div class="project-head">
       <span class="refdes">U1 · SUE</span>
-      <div class="project-title">SUE — Sensor Universal Ematel</div>
+      <div class="project-title">SUE: Sensor Universal Ematel</div>
       <div class="status-tag">Precursor de SAE</div>
     </div>
     <div class="project-body">
-      <p class="project-desc">Primer intento de Ematel de construir un sensor IoT multipropósito basado en ESP32. Precursor directo de SAE: sirvió para aprender qué funciones eran realmente necesarias antes de simplificar el enfoque.</p>
+      <p class="project-desc">Primera iteración de un sensor IoT multipropósito basado en ESP32. Precursor directo de SAE: sirvió para aprender qué funciones eran realmente necesarias antes de simplificar el enfoque.</p>
       <div class="photo-strip">
         <img src="./Imagenes/SUE2.jpeg" alt="SUE v2 — placa principal ensamblada" loading="lazy">
         <img src="./Imagenes/sue%202%20pcb%20+%20ensamble.jpeg" alt="SUE v2 — PCB y ensamble en gabinete" loading="lazy">
@@ -300,8 +300,8 @@
         <tbody><tr><td>MCU</td><td>ESP32</td></tr>
         <tr><td>Interfaz de usuario</td><td>Pantalla, buzzer y LEDs de estado</td></tr>
         <tr><td>Almacenamiento</td><td>Tarjeta SD</td></tr>
-        <tr><td>Entradas</td><td>Puertos analógicos de propósito general</td></tr>
-        <tr><td>Resultado</td><td>Su complejidad frente al caso de uso real llevó a rediseñar el enfoque desde cero en SAE, priorizando simplicidad y costo.</td></tr>
+        <tr><td>Entradas</td><td>, AHT20, BMP280 y Puertos analógicos de propósito general</td></tr>
+        <tr><td>Resultado</td><td>Su complejidad frente al caso de uso real llevó a rediseñar el enfoque desde cero en SAE, priorizando simplicidad y costo. Ensamblados a mano.</td></tr>
       </tbody></table>
       <div class="tag-row">
         <span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">Pantalla</span><span class="tag">Buzzer</span><span class="tag">SD</span><span class="tag">Multipropósito</span>
@@ -312,11 +312,11 @@
   <div class="project">
     <div class="project-head">
       <span class="refdes">U2 · SAE</span>
-      <div class="project-title">SAE — Sensor Ambiental Ematel</div>
+      <div class="project-title">SAE: Sensor Ambiental Ematel</div>
       <div class="status-tag">v1.1 en operación · v2.0 en tránsito</div>
     </div>
     <div class="project-body">
-      <p class="project-desc">Evolución directa de SUE: en vez de un sensor multipropósito, SAE se enfocó en ser simple, barato y fácil de implementar para monitoreo ambiental y cadena de frío. Sistema IoT desarrollado desde cero para Ematel, hoy en su tercera revisión mayor.</p>
+      <p class="project-desc">Evolución directa de SUE: en vez de un sensor multipropósito, SAE se enfocó en ser simple, barato, fácil de implementar en monitoreo ambiental y cadena de frío. Sistema IoT desarrollado desde cero para Ematel, hoy en su tercera revisión mayor.</p>
       <div>
         <div class="exp-item">
           <div class="exp-date mono">v0.1</div>
@@ -333,7 +333,7 @@
           <div class="exp-date mono">v1.1</div>
           <div>
             <div class="exp-role">Rediseño de 4 capas</div>
-            <div class="exp-desc">Diseño más limpio en 4 capas. Lleva más de 3 meses en pruebas constantes, funcionando sin fallos. Primera revisión ensamblada directamente por el fabricante en China (las anteriores las ensamblé manualmente).</div>
+            <div class="exp-desc">Diseño más limpio en 4 capas. Lleva más de 3 meses en funcionamiento sin fallos. Primera revisión ensamblada directamente por JLCPCB.</div>
             <div class="photo-strip compact">
               <img src="./Imagenes/sae%20hw%201_1%20render.png" alt="SAE v1.1 — render CAD" loading="lazy">
               <img src="./Imagenes/sae%20hw%20pcb%20layout.png" alt="SAE v1.1 — layout de PCB en KiCad" loading="lazy">
@@ -346,7 +346,7 @@
           <div class="exp-date mono">v2.0</div>
           <div>
             <div class="exp-role">Transición a stack STM32</div>
-            <div class="exp-desc">Diseño transicional: pasa de un único ESP32-C3 a un stack basado en STM32 como MCU principal, dejando el C3 solo como módulo precertificado de comunicaciones. 4 capas, diseñada en torno a una carcasa comercial fabricada en China. Ya fabricada y ensamblada en China, en tránsito hacia Chile.</div>
+            <div class="exp-desc">Diseño transicional: pasa de un único ESP32-C3 a un stack basado en STM32 como MCU principal, dejando el C3 solo como módulo precertificado de comunicaciones. 4 capas, diseñada en torno a una carcasa comercial fabricada en China. PCB ensamblada en China, en transito para ser ensamblado con la caja en Chile.</div>
             <div class="photo-strip compact">
               <img src="./Imagenes/sae%202%20hw%20layout.png" alt="SAE v2.0 — layout de PCB en KiCad" loading="lazy">
               <img src="./Imagenes/sae%202%20hw%20render.png" alt="SAE v2.0 — render CAD" loading="lazy">
@@ -356,7 +356,7 @@
         </div>
       </div>
       <div class="tag-row">
-        <span class="tag">KiCad</span><span class="tag">ESP32-C3</span><span class="tag">STM32</span><span class="tag">4 capas</span><span class="tag">Bajo costo</span><span class="tag">Fabricación China</span>
+        <span class="tag">KiCad</span><span class="tag">ESP32-C3</span><span class="tag">STM32</span><span class="tag">4 capas</span><span class="tag">Bajo costo</span><span class="tag">JLCPCB</span>
       </div>
     </div>
   </div>
@@ -367,48 +367,25 @@
 
   <div class="project">
     <div class="project-head">
-      <span class="refdes">U3 · Tube Screamer</span>
-      <div class="project-title placeholder">[Nombre / variante del pedal]</div>
-      <div class="status-tag placeholder">[Estado]</div>
+      <span class="refdes">U4 · Sensor de agua para bebedero</span>
+      <div class="project-title placeholder">Indicador de nivel bajo de agua para mascotas</div>
+      <div class="status-tag placeholder">En desarrollo</div>
     </div>
     <div class="project-body">
-      <p class="project-desc placeholder">[Descripción corta — qué es, por qué lo construiste, qué lo hace distinto del original]</p>
+      <p class="project-desc placeholder">Es un sensor capacitivo para los bebederos de mascotas, simplemente enciende un led cuando el agua baja de cierto nivel. Funciona con un Attiny 412, usando el comparador interno para encender un led cuando el agua baja de un nivel seteado por una lamina de cobre adherida al exterior de la botella de agua.</p>
       <div class="photo-strip">
-        <div class="photo-placeholder">[Agregar foto]</div>
+        <img src="./Imagenes/Water%20Bottle%20Sensor.png" alt="Sensor de agua para bebedero — layout de PCB en KiCad" loading="lazy">
+        <img src="./Imagenes/Water%20Bottle%20Sensor%202.png" alt="Sensor de agua para bebedero — render CAD de la placa" loading="lazy">
       </div>
       <table class="spec-table">
         <tbody>
-        <tr><td>Circuito</td><td class="placeholder">[Detalles del circuito / mods respecto al original]</td></tr>
-        <tr><td>Gabinete</td><td class="placeholder">[Material, mecanizado, serigrafía]</td></tr>
-        <tr><td>Retos de diseño</td><td class="placeholder">[Ruido, layout analógico, footswitch, etc.]</td></tr>
+        <tr><td>MCU / Sensor</td><td class="placeholder">Attiny 412 / tira de cobre</td></tr>
+        <tr><td>Alimentación</td><td class="placeholder">CR2032</td></tr>
+        <tr><td>Retos de diseño</td><td class="placeholder">Conseguir un dispositivo que dure años y sea libre de intervención.</td></tr>
         </tbody>
       </table>
       <div class="tag-row">
-        <span class="tag placeholder">[tag]</span><span class="tag placeholder">[tag]</span><span class="tag placeholder">[tag]</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="project">
-    <div class="project-head">
-      <span class="refdes">U4 · Pet Water Sensor</span>
-      <div class="project-title placeholder">[Nombre del proyecto]</div>
-      <div class="status-tag placeholder">[Estado]</div>
-    </div>
-    <div class="project-body">
-      <p class="project-desc placeholder">[Descripción corta — sensor de agua para perros, qué problema resuelve]</p>
-      <div class="photo-strip">
-        <div class="photo-placeholder">[Agregar foto]</div>
-      </div>
-      <table class="spec-table">
-        <tbody>
-        <tr><td>MCU / Sensor</td><td class="placeholder">[Detalle]</td></tr>
-        <tr><td>Alimentación</td><td class="placeholder">[Detalle]</td></tr>
-        <tr><td>Retos de diseño</td><td class="placeholder">[Detalle]</td></tr>
-        </tbody>
-      </table>
-      <div class="tag-row">
-        <span class="tag placeholder">[tag]</span><span class="tag placeholder">[tag]</span><span class="tag placeholder">[tag]</span>
+        <span class="tag placeholder">KiCad</span><span class="tag placeholder">Attiny 412</span><span class="tag placeholder">Mascotas</span>
       </div>
     </div>
   </div>
