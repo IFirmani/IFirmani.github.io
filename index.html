@@ -305,44 +305,58 @@
 
   <div class="project">
     <div class="project-head">
-      <span class="refdes">U1 · Flight Computer</span>
-      <div class="project-title">Computadora de Vuelo — STM32N6</div>
-      <div class="status-tag">En diseño</div>
+      <span class="refdes">U1 · SUE</span>
+      <div class="project-title">SUE — Sensor Universal Ematel</div>
+      <div class="status-tag">Precursor de SAE</div>
     </div>
     <div class="project-body">
-      <p class="project-desc">Placa controladora de vuelo para UAV con visión artificial y edge AI, basada en STM32N6. Con la NPU integrada, se pueden procesar datos y tomar decisiones en tiempo real, efectuando correcciones y ajustes independientemente de la conectividad del UAV.
-</p>
+      <p class="project-desc">Primer intento de Ematel de construir un sensor IoT multipropósito basado en ESP32. Precursor directo de SAE: sirvió para aprender qué funciones eran realmente necesarias antes de simplificar el enfoque.</p>
       <table class="spec-table">
-        <tbody><tr><td>MCU</td><td>STM32N6 encargado del control de vuelo del dispositivo, permite aumentar el rango de operación del UAV al tomar decisiones in-situ sin que el operador intervenga. Manteniendo rumbo, actitud y objetivo</td></tr>
-        <tr><td>Sensores</td><td>IMU de 9 ejes, barometro, termometro, higrometro y GPS.</td></tr>
-        <tr><td>Alimentación</td><td>Reguladores buck de alta eficiencia, sistema de carga solar para UAV tipo planeador permitiendo misiones de rango extendido</td></tr>
-        <tr><td>Layout</td><td>6 capas</td></tr>
-        <tr><td>Retos de diseño</td><td>Integridad de señal en buses de alta velocidad del N6, gestión térmica de la NPU bajo carga sostenida, aislamiento de ruido de motores/ESC.</td></tr>
+        <tbody><tr><td>MCU</td><td>ESP32</td></tr>
+        <tr><td>Interfaz de usuario</td><td>Pantalla, buzzer y LEDs de estado</td></tr>
+        <tr><td>Almacenamiento</td><td>Tarjeta SD</td></tr>
+        <tr><td>Entradas</td><td>Puertos analógicos de propósito general</td></tr>
+        <tr><td>Resultado</td><td>Su complejidad frente al caso de uso real llevó a rediseñar el enfoque desde cero en SAE, priorizando simplicidad y costo.</td></tr>
       </tbody></table>
       <div class="tag-row">
-        <span class="tag">KiCad</span><span class="tag">STM32N6</span><span class="tag">Sensor Fusion</span><span class="tag">4-layer</span><span class="tag">Aviónica</span>
+        <span class="tag">KiCad</span><span class="tag">ESP32</span><span class="tag">Pantalla</span><span class="tag">Buzzer</span><span class="tag">SD</span><span class="tag">Multipropósito</span>
       </div>
     </div>
   </div>
 
   <div class="project">
     <div class="project-head">
-      <span class="refdes">U2 · Environmental Node</span>
-      <div class="project-title">Estación de Sensores Climáticos de Exterior</div>
-      <div class="status-tag">En diseño</div>
+      <span class="refdes">U2 · SAE</span>
+      <div class="project-title">SAE — Sensor Ambiental Ematel</div>
+      <div class="status-tag">v1.1 en operación · v2.0 en tránsito</div>
     </div>
     <div class="project-body">
-      <p class="project-desc">Nodo de sensado ambiental de bajo consumo pensado para instalación remota a la intemperie: mide temperatura, humedad, presión, y opcionalmente viento y lluvia, transmitiendo datos vía LoRa o Wi-Fi con alimentación solar autónoma.</p>
-      <table class="spec-table">
-        <tbody><tr><td>MCU</td><td>Microcontrolador de bajo consumo (ej. STM32L o ESP32) con modos sleep agresivos.</td></tr>
-        <tr><td>Sensores</td><td>Temp/humedad (I2C), presión barométrica, anemómetro/pluviómetro por interrupción (opcional).</td></tr>
-        <tr><td>Comunicación</td><td>LoRa (largo alcance, bajo consumo) o Wi-Fi según caso de uso.</td></tr>
-        <tr><td>Energía</td><td>Panel solar + carga de batería LiFePO4, circuito de gestión de energía (MPPT simple), protección de sobrecarga.</td></tr>
-        <tr><td>Mecánico</td><td>Diseño de placa compatible con carcasa IP65, conectores estancos, protección contra transitorios (rayos, ESD).</td></tr>
-        <tr><td>Retos de diseño</td><td>Consumo en reposo &lt;10 µA, protección ambiental real (humedad, corrosión, ciclos térmicos), calibración de sensores expuestos.</td></tr>
-      </tbody></table>
+      <p class="project-desc">Evolución directa de SUE: en vez de un sensor multipropósito, SAE se enfocó en ser simple, barato y fácil de implementar para monitoreo ambiental y cadena de frío. Sistema IoT desarrollado desde cero para Ematel, hoy en su tercera revisión mayor.</p>
+      <div>
+        <div class="exp-item">
+          <div class="exp-date mono">v0.1</div>
+          <div>
+            <div class="exp-role">Prueba de concepto</div>
+            <div class="exp-desc">Primera versión: priorizar simplicidad, bajo costo y facilidad de implementación por sobre las funciones extra de SUE. Placas ensambladas manualmente.</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-date mono">v1.1</div>
+          <div>
+            <div class="exp-role">Rediseño de 4 capas</div>
+            <div class="exp-desc">Diseño más limpio en 4 capas. Lleva más de 3 meses en pruebas constantes, funcionando sin fallos. Primera revisión ensamblada directamente por el fabricante en China (las anteriores las ensamblé manualmente).</div>
+          </div>
+        </div>
+        <div class="exp-item" style="border-bottom:none;">
+          <div class="exp-date mono">v2.0</div>
+          <div>
+            <div class="exp-role">Transición a stack STM32</div>
+            <div class="exp-desc">Diseño transicional: pasa de un único ESP32-C3 a un stack basado en STM32 como MCU principal, dejando el C3 solo como módulo precertificado de comunicaciones. 4 capas, diseñada en torno a una carcasa comercial fabricada en China. Ya fabricada y ensamblada en China, en tránsito hacia Chile.</div>
+          </div>
+        </div>
+      </div>
       <div class="tag-row">
-        <span class="tag">Low Power</span><span class="tag">LoRa</span><span class="tag">Solar</span><span class="tag">IP65</span><span class="tag">Instrumentación</span>
+        <span class="tag">KiCad</span><span class="tag">ESP32-C3</span><span class="tag">STM32</span><span class="tag">4 capas</span><span class="tag">Bajo costo</span><span class="tag">Fabricación China</span>
       </div>
     </div>
   </div>
